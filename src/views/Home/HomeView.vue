@@ -1,20 +1,18 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { PaperAirplaneIcon } from "@heroicons/vue/24/solid";
+  import { ref, onMounted } from 'vue'
+  import { PaperAirplaneIcon } from '@heroicons/vue/24/solid'
 
-const emit = defineEmits(["startApp"]);
-const isIOS = ref();
+  const emit = defineEmits(['startApp'])
+  const isIOS = ref()
 
-onMounted(() => {
-  isIOS.value =
-    navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
-    navigator.userAgent.match(/AppleWebKit/);
-});
+  onMounted(() => {
+    isIOS.value = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
+  })
 
-const startOrientation = () => {
-  if (isIOS.value) DeviceOrientationEvent.requestPermission();
-  emit("startApp");
-};
+  const startOrientation = () => {
+    if (isIOS.value) DeviceOrientationEvent.requestPermission()
+    emit('startApp')
+  }
 </script>
 
 <template>
@@ -22,9 +20,7 @@ const startOrientation = () => {
     <div
       class="relative flex h-full items-center justify-center bg-slate-300 bg-[url('/images/bg.jpg')] bg-cover md:bg-[url('/images/bg-desktop.jpg')]"
     >
-      <div
-        class="absolute left-0 top-0 h-full w-full bg-black/40 backdrop-blur-sm"
-      ></div>
+      <div class="absolute left-0 top-0 h-full w-full bg-black/40 backdrop-blur-sm"></div>
       <div class="items-START z-10 flex flex-col gap-5 px-4">
         <h1 class="text-4xl font-semibold text-white md:text-6xl">
           AR Tour <br />
