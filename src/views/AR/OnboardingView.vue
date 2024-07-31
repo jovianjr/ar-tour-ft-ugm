@@ -1,16 +1,20 @@
 <script setup>
+  import { ref } from 'vue'
   import { RocketLaunchIcon } from '@heroicons/vue/24/solid'
-  const emit = defineEmits(['continueLastSaved, toggleHowToUse'])
+  import HowToUseView from '@/views/AR/HowToUseView.vue'
+
+  const emit = defineEmits(['continueLastSaved'])
   const props = defineProps({
     lastSavedStep: {
       type: Number,
       required: false
     }
   })
+  const howToUseModal = ref(false)
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 rounded-t-xl bg-white px-6 py-4 pb-6 text-slate-900">
+  <div class="absolute bottom-0 flex w-full flex flex-col gap-4 rounded-t-xl bg-white px-6 py-4 pb-6 text-slate-900">
     <label class="text-sm">Selamat Datang di,</label>
     <h1 class="border-l-8 border-yellow-300 pl-4 text-4xl font-bold">
       AR Tour <br />
@@ -29,8 +33,12 @@
       Ayo menuju Tugu Teknik untuk memulai tour. Ikuti arahan yang ada pada perangkatmu dan lihatlah hal-hal menarik
       sepanjang tour.
     </p>
-    <button class="pt-2 cursor-pointer text-center text-xs text-neutral-500 underline" @click="emit('toggleHowToUse')">
+    <button
+      class="pt-2 cursor-pointer text-center text-xs text-neutral-500 underline"
+      @click="howToUseModal = !howToUseModal"
+    >
       Cara Penggunaan?
     </button>
   </div>
+  <HowToUseView v-if="howToUseModal" @close="howToUseModal = !howToUseModal" />
 </template>
