@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <div class="h-[100svh]">
+  <div class="h-svh">
     <div
       class="relative flex h-full items-center justify-center bg-slate-300 bg-[url('/images/bg.jpg')] bg-cover md:bg-[url('/images/bg-desktop.jpg')]"
     >

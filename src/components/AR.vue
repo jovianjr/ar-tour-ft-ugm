@@ -209,7 +209,7 @@
 <template>
   <canvas
     id="canvas1"
-    class="!h-svh !w-[100svw] relative"
+    class="!h-svh !w-svw relative"
     :class="props.active ? 'z-[-1]' : 'z-[-2]'"
     style="background-color: black; width: 100%; height: 100%"
   ></canvas>

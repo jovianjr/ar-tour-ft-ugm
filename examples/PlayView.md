@@ -55,7 +55,7 @@ const changeDepartment = () => {
 <template>
   <div
     v-if="gpsSupport == true"
-    class="relative h-[100svh] w-[100svw] bg-gray-600"
+    class="relative h-svh w-svw bg-gray-600"
   >
     <!-- Title -->
     <div
@@ -121,7 +121,7 @@ const changeDepartment = () => {
     </div> -->
 
     <!-- AR Main scene -->
-    <!-- <div class="ar-wrapper h-[100svh] w-[100svw]">
+    <!-- <div class="ar-wrapper h-svh w-svw">
       <a-scene
         mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind; uiScanning:no"
         device-orientation-permission-ui="enabled: false"
@@ -139,6 +139,7 @@ const changeDepartment = () => {
         </a-entity>
       </a-scene>
     </div> -->
+
   </div>
   <div v-if="gpsSupport == false" class="text-red-500">
     This Browser Doesn't support GPS. Please Check Your Permission or Change
