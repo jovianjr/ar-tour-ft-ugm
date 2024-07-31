@@ -4,6 +4,7 @@
   import { ref, onMounted, watch } from 'vue'
   // Component
   import AR from '@/components/AR.vue'
+  import ARScene from '@/components/ARScene.vue'
   import speech from '@/components/SpeechSynthesis.vue'
   // View
   import CompassView from '@/views/AR/CompassView.vue'
@@ -104,6 +105,8 @@
       center = scenario.data.target
     } else if (scenario.type === 'direction') {
       center = scenario.data.targetArea
+    } else {
+      return
     }
 
     const circle = turf.circle(center, 20, { units: 'meters' })
@@ -169,9 +172,15 @@
 </script>
 
 <template>
-  <div v-if="gpsSupport == true" class="relative h-[100svh] w-[100svw] bg-slate-900 bg-cover">
+  <div v-if="gpsSupport == true" class="z-0 relative h-svh w-svw bg-slate-900">
     <NoInsideAreaView v-if="initialization" />
     <div v-else>
+      <div
+        v-if="currentStep > 0 && currentStep < dataScenario.length - 2"
+        class="absolute top-2 right-3 text-xs py-1 px-2 font-medium bg-slate-900 text-white border border-white flex items-center justify-center rounded-full"
+      >
+        {{ currentStep }} / {{ dataScenario.length - 1 }}
+      </div>
       <CompassView />
       <InformationView
         v-if="currentStep > 0 && dataScenario[currentStep].type === 'scene'"
@@ -182,7 +191,8 @@
         v-if="currentStep > 0 && dataScenario[currentStep].type === 'direction'"
         :title="dataScenario[currentStep].data.title"
       />
-      <AR :coordinates="coordinates" />
+      <AR :coordinates="coordinates" :active="currentStep > 0 && dataScenario[currentStep].type === 'direction'" />
+      <ARScene :active="currentStep > 0 && dataScenario[currentStep].type === 'scene'" />
       <OnboardingView
         v-if="onboarding"
         class="absolute bottom-0 flex w-full"

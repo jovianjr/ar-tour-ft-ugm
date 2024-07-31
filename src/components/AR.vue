@@ -7,6 +7,11 @@
       default: {},
       type: Object,
       required: false
+    },
+    active: {
+      default: true,
+      type: Boolean,
+      required: true
     }
   })
 
@@ -204,7 +209,8 @@
 <template>
   <canvas
     id="canvas1"
-    class="!h-[100svh] !w-[100svw]"
+    class="!h-svh !w-[100svw] relative"
+    :class="props.active ? 'z-[-1]' : 'z-[-2]'"
     style="background-color: black; width: 100%; height: 100%"
   ></canvas>
 </template>
