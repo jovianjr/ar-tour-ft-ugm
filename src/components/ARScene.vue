@@ -8,6 +8,10 @@
       default: true,
       type: Boolean,
       required: true
+    },
+    data: {
+      type: Object,
+      required: true
     }
   })
 
@@ -22,13 +26,14 @@
   <main class="relative h-svh w-svw" v-if="!loading" :class="props.active ? 'z-[-1]' : 'z-[-2]'">
     <div class="ar-wrapper">
       <a-scene
-        mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind;uiScanning:no;uiLoading:no;"
+        mindar-image="imageTargetSrc: /marker.mind;uiScanning:no;uiLoading:no;"
         vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false"
       >
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         <a-entity mindar-image-target="targetIndex: 0">
-          <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+          <a-image position="0.25 0.5 0" :src="props.data.image" width="1.6" height="0.9"></a-image>
+          <a-text position="-0.5 -0.1 0" :value="props.data.name"></a-text>
         </a-entity>
       </a-scene>
     </div>

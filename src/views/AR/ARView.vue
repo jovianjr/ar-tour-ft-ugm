@@ -180,7 +180,7 @@
 
       <!-- AR -->
       <AR :coordinates="coordinates" :active="dataScenario[currentStep].type !== 'scene'" />
-      <ARScene :active="dataScenario[currentStep].type === 'scene'" />
+      <ARScene :data="dataScenario[currentStep].data" :active="dataScenario[currentStep].type === 'scene'" />
 
       <!-- Scenario Type -->
       <InformationView
