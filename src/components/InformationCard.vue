@@ -65,11 +65,13 @@
           Lanjut ke Tempat Selanjutnya
         </button>
         <button
+          v-if="data.model"
           @click="modal3D = !modal3D"
           class="w-fit self-center rounded-full bg-slate-900 px-2 py-2 text-xs text-white"
         >
           <CubeIcon class="h-5 w-5" />
         </button>
+        <span v-else class="h-5 w-5"></span>
       </div>
     </swiper-slide>
   </swiper>
