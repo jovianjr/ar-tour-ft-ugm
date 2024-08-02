@@ -24,7 +24,6 @@
     const camera = new THREE.PerspectiveCamera(80, 2, 0.1, 50000)
     const arjs = new THREEx.LocationBased(scene, camera)
     const loader = new GLTFLoader()
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.1)
     const ambientLight = new THREE.AmbientLight(0xffffff, 1)
 
     const main = () => {
@@ -154,7 +153,6 @@
         if (!newVal.path || !newVal.target) return
 
         // re add light
-        arjs.add(directionalLight)
         arjs.add(ambientLight)
 
         // path
