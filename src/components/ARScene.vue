@@ -32,8 +32,9 @@
       >
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         <a-entity mindar-image-target="targetIndex: 0">
-          <a-image position="0.25 0.5 0" :src="props.data.image" width="1.6" height="0.9"></a-image>
+          <a-image position="0 0.5 0" :src="props.data.image" width="1.2" height="0.7"></a-image>
           <a-text position="-0.5 -0.1 0" :value="props.data.name"></a-text>
+          <a-gltf-model position="0 -1 0" :src="`/data/${props.data.model}`" scale="0.2 0.2 0.2"></a-gltf-model>
         </a-entity>
       </a-scene>
     </div>

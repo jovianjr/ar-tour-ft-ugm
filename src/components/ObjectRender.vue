@@ -16,7 +16,6 @@
 
     const renderer = new THREE.WebGLRenderer({
       canvas: document.querySelector('#model')
-      // alpha: true
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setAnimationLoop(animate);
@@ -24,14 +23,11 @@
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enablePan = false;
 
-    // const geometry = new THREE.BoxGeometry(1, 1, 1);
-    // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    // const cube = new THREE.Mesh(geometry, material);
-    // scene.add(cube);
     const light = new THREE.AmbientLight(0xffffff, 1); // soft white light
     scene.add(light);
     // const hlp = new THREE.AxesHelper(1);
     // scene.add(hlp);
+
     // gltf
     const loader = new GLTFLoader();
     loader.load(
@@ -50,11 +46,9 @@
     camera.position.z = 4;
     camera.position.y = 4;
     camera.position.x = 4;
-    // cube.rotation.x = 0.5;
     controls.update();
 
     function animate() {
-      // cube.rotation.y += 0.01;
       controls.update();
       renderer.render(scene, camera);
     }
