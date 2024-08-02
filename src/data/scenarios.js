@@ -1,23 +1,23 @@
-import dataFT from "./ft-ugm";
+import dataFT from './ft-ugm'
 
 export default [
   {
-    type: "initialization",
-    label: "GPS",
+    type: 'initialization',
+    label: 'GPS',
     data: {
-      target: [110.37385674541716, -7.765868098622165],
-    },
+      target: [110.37385674541716, -7.765868098622165]
+    }
   },
   {
-    type: "scene",
-    label: "Tugu FT UGM",
-    data: dataFT.tugu,
+    type: 'scene',
+    label: 'Tugu FT UGM',
+    data: dataFT.tugu
   },
   {
-    type: "direction",
-    label: "Tugu - SGLC",
+    type: 'direction',
+    label: 'Tugu - SGLC',
     data: {
-      title: "Menuju SGLC",
+      title: 'Menuju SGLC',
       path: [
         [110.3737673, -7.765928],
         [110.3737539, -7.7659041],
@@ -75,22 +75,22 @@ export default [
         [110.3725979, -7.7654922],
         [110.3725979, -7.7654736],
         [110.3725979, -7.7654576],
-        [110.3725925, -7.7654337],
+        [110.3725925, -7.7654337]
       ],
       target: [110.37233119910238, -7.765341062570343],
-      targetArea: [110.37264868806609, -7.765460589355741],
-    },
+      targetArea: [110.37264868806609, -7.765460589355741]
+    }
   },
   {
-    type: "scene",
-    label: "SGLC",
-    data: dataFT.sglc,
+    type: 'scene',
+    label: 'SGLC',
+    data: dataFT.sglc
   },
   {
-    type: "direction",
-    label: "SGLC-PerpusFT",
+    type: 'direction',
+    label: 'SGLC-PerpusFT',
     data: {
-      title: "Menuju Perpustakaan FT UGM",
+      title: 'Menuju Perpustakaan FT UGM',
       path: [
         [110.3725684, -7.7654603],
         [110.3725657, -7.7654789],
@@ -106,22 +106,22 @@ export default [
         [110.3725255, -7.7658058],
         [110.3725174, -7.7658297],
         [110.3725147, -7.7658642],
-        [110.3725094, -7.7659068],
+        [110.3725094, -7.7659068]
       ],
       target: [110.37251578769578, -7.76596081626144],
-      targetArea: [110.3725435062661, -7.765835131131301],
-    },
+      targetArea: [110.3725435062661, -7.765835131131301]
+    }
   },
   {
-    type: "scene",
-    label: "Perpusatakaan FT UGM",
-    data: dataFT.library,
+    type: 'scene',
+    label: 'Perpusatakaan FT UGM',
+    data: dataFT.library
   },
   {
-    type: "direction",
-    label: "PerpusFT-DTGL",
+    type: 'direction',
+    label: 'PerpusFT-DTGL',
     data: {
-      title: "Menuju Departemen Teknik Geologi",
+      title: 'Menuju Departemen Teknik Geologi',
       path: [
         [110.3725094, -7.7658802],
         [110.3725147, -7.7658589],
@@ -158,22 +158,22 @@ export default [
         [110.3730056, -7.7659812],
         [110.373027, -7.7659945],
         [110.3730485, -7.7659971],
-        [110.3730673, -7.7660024],
+        [110.3730673, -7.7660024]
       ],
       target: [110.3732060173831, -7.766030133180019],
-      targetArea: [110.3730906360757, -7.766012608080718],
-    },
+      targetArea: [110.3730906360757, -7.766012608080718]
+    }
   },
   {
-    type: "scene",
-    label: "DTGL",
-    data: dataFT.dtgl,
+    type: 'scene',
+    label: 'DTGL',
+    data: dataFT.dtgl
   },
   {
-    type: "direction",
-    label: "DTGL-DTNTF",
+    type: 'direction',
+    label: 'DTGL-DTNTF',
     data: {
-      title: "Menuju Departemen Teknik Nuklir dan Teknik Fisika",
+      title: 'Menuju Departemen Teknik Nuklir dan Teknik Fisika',
       path: [
         [110.373078, -7.7660131],
         [110.3730512, -7.7660077],
@@ -192,22 +192,22 @@ export default [
         [110.3727776, -7.7661114],
         [110.3727722, -7.766138],
         [110.3727561, -7.7661592],
-        [110.3727561, -7.7661938],
+        [110.3727561, -7.7661938]
       ],
       target: [110.3728009862674, -7.766282572259142],
-      targetArea: [110.37283153261983, -7.766170909229272],
-    },
+      targetArea: [110.37283153261983, -7.766170909229272]
+    }
   },
   {
-    type: "scene",
-    label: "DTNTF",
-    data: dataFT.dtntf,
+    type: 'scene',
+    label: 'DTNTF',
+    data: dataFT.dtntf
   },
   {
-    type: "direction",
-    label: "DTNTF-DTETI",
+    type: 'direction',
+    label: 'DTNTF-DTETI',
     data: {
-      title: "Menuju Departemen Teknik Elektro dan Teknologi Informasi",
+      title: 'Menuju Departemen Teknik Elektro dan Teknologi Informasi',
       path: [
         [110.3727669, -7.7661645],
         [110.3727749, -7.766138],
@@ -276,22 +276,22 @@ export default [
         [110.3716779, -7.765827],
         [110.3716886, -7.7658297],
         [110.3717047, -7.7658403],
-        [110.3717288, -7.7658536],
+        [110.3717288, -7.7658536]
       ],
       target: [110.37182195776123, -7.765998208808277],
-      targetArea: [110.37167305753164, -7.765883216447107],
-    },
+      targetArea: [110.37167305753164, -7.765883216447107]
+    }
   },
   {
-    type: "scene",
-    label: "DTETI",
-    data: dataFT.dteti,
+    type: 'scene',
+    label: 'DTETI',
+    data: dataFT.dteti
   },
   {
-    type: "direction",
-    label: "DTETI-DTMI",
+    type: 'direction',
+    label: 'DTETI-DTMI',
     data: {
-      title: "Menuju Departemen Teknik Mesin dan Teknik Industri",
+      title: 'Menuju Departemen Teknik Mesin dan Teknik Industri',
       path: [
         [110.3717503, -7.7658669],
         [110.3717315, -7.7658563],
@@ -314,22 +314,22 @@ export default [
         [110.3712514, -7.765726],
         [110.3712192, -7.7657234],
         [110.3711978, -7.7657207],
-        [110.3711709, -7.7657181],
+        [110.3711709, -7.7657181]
       ],
       target: [110.3710977608629, -7.765737763497304],
-      targetArea: [110.3712347673178, -7.765745768172122],
-    },
+      targetArea: [110.3712347673178, -7.765745768172122]
+    }
   },
   {
-    type: "scene",
-    label: "DTMI",
-    data: dataFT.tugu,
+    type: 'scene',
+    label: 'DTMI',
+    data: dataFT.dtmi
   },
   {
-    type: "direction",
-    label: "DTMI-DTK",
+    type: 'direction',
+    label: 'DTMI-DTK',
     data: {
-      title: "Menuju Departemen Teknik Kimia",
+      title: 'Menuju Departemen Teknik Kimia',
       path: [
         [110.371179, -7.7657287],
         [110.3712031, -7.7657287],
@@ -354,22 +354,22 @@ export default [
         [110.3714097, -7.76533],
         [110.3714177, -7.7653088],
         [110.3714231, -7.7652875],
-        [110.3714338, -7.765253],
+        [110.3714338, -7.765253]
       ],
       target: [110.37140893597564, -7.765187673155813],
-      targetArea: [110.37141038221611, -7.76533420238005],
-    },
+      targetArea: [110.37141038221611, -7.76533420238005]
+    }
   },
   {
-    type: "scene",
-    label: "DTK",
-    data: dataFT.dtk,
+    type: 'scene',
+    label: 'DTK',
+    data: dataFT.dtk
   },
   {
-    type: "direction",
-    label: "DTK-DTAP",
+    type: 'direction',
+    label: 'DTK-DTAP',
     data: {
-      title: "Menuju Departemen Teknik Arsitektur dan Perencanaan",
+      title: 'Menuju Departemen Teknik Arsitektur dan Perencanaan',
       path: [
         [110.3714231, -7.7652689],
         [110.371415, -7.7652902],
@@ -454,22 +454,22 @@ export default [
         [110.3720427, -7.7642883],
         [110.3720319, -7.7642564],
         [110.3720239, -7.7642351],
-        [110.3720239, -7.7641979],
+        [110.3720239, -7.7641979]
       ],
       target: [110.37189706162881, -7.764090103717625],
-      targetArea: [110.3721873837295, -7.764371320736481],
-    },
+      targetArea: [110.3721873837295, -7.764371320736481]
+    }
   },
   {
-    type: "scene",
-    label: "DTAP",
-    data: dataFT.dtap,
+    type: 'scene',
+    label: 'DTAP',
+    data: dataFT.dtap
   },
   {
-    type: "direction",
-    label: "DTAP-DTGD",
+    type: 'direction',
+    label: 'DTAP-DTGD',
     data: {
-      title: "Menuju Departemen Teknik Geodesi",
+      title: 'Menuju Departemen Teknik Geodesi',
       path: [
         [110.3720078, -7.7642803],
         [110.3720132, -7.7642962],
@@ -506,22 +506,22 @@ export default [
         [110.3726891, -7.7640757],
         [110.3726918, -7.7640571],
         [110.3726971, -7.7640252],
-        [110.3726998, -7.7640012],
+        [110.3726998, -7.7640012]
       ],
       target: [110.37266650307647, -7.764002065696451],
-      targetArea: [110.37264658774792, -7.764136678484668],
-    },
+      targetArea: [110.37264658774792, -7.764136678484668]
+    }
   },
   {
-    type: "scene",
-    label: "DTGD",
-    data: dataFT.dtgd,
+    type: 'scene',
+    label: 'DTGD',
+    data: dataFT.dtgd
   },
   {
-    type: "direction",
-    label: "DTGD-DTSL",
+    type: 'direction',
+    label: 'DTGD-DTSL',
     data: {
-      title: "Departmen Teknik Sipil dan Lingkungan",
+      title: 'Departmen Teknik Sipil dan Lingkungan',
       path: [
         [110.3726864, -7.7640358],
         [110.3726783, -7.7640624],
@@ -555,22 +555,22 @@ export default [
         [110.3729519, -7.7644185],
         [110.3729841, -7.7644211],
         [110.3730083, -7.7644265],
-        [110.373027, -7.7644291],
+        [110.373027, -7.7644291]
       ],
       target: [110.37311952885565, -7.764467270551398],
-      targetArea: [110.37294480034436, -7.764434772876104],
-    },
+      targetArea: [110.37294480034436, -7.764434772876104]
+    }
   },
   {
-    type: "scene",
-    label: "DTSL",
-    data: dataFT.dtsl,
+    type: 'scene',
+    label: 'DTSL',
+    data: dataFT.dtsl
   },
   {
-    type: "direction",
-    label: "DTSL-MasjidFT",
+    type: 'direction',
+    label: 'DTSL-MasjidFT',
     data: {
-      title: "Masjid Al-Mustadam Fakultas Teknik UGM",
+      title: 'Masjid Al-Mustadam Fakultas Teknik UGM',
       path: [
         [110.3729948, -7.7644318],
         [110.3729734, -7.7644185],
@@ -619,23 +619,23 @@ export default [
         [110.3722411, -7.7646444],
         [110.3722143, -7.7646311],
         [110.3721848, -7.7646231],
-        [110.3721634, -7.7646125],
+        [110.3721634, -7.7646125]
       ],
       target: [110.37224678594043, -7.76467856063731],
-      targetArea: [110.3722501950157, -7.764673540896787],
-    },
+      targetArea: [110.3722501950157, -7.764673540896787]
+    }
   },
   {
-    type: "scene",
-    label: "MasjidFT",
-    data: dataFT.masjidFT,
+    type: 'scene',
+    label: 'MasjidFT',
+    data: dataFT.masjidFT
   },
   {
-    type: "closing",
-    label: "-",
+    type: 'closing',
+    label: '-',
     data: {
       description:
-        "Selamat! Anda telah menjelajahi Fakultas Teknik UGM. Kami berharap informasi yang telah kami sampaikan bisa memberikan gambaran yang jelas dan bermanfaat bagi Anda. Jangan ragu untuk mengeksplorasi lebih lanjut atau bertanya lebih lanjut tentang apa pun yang Anda minati di fakultas ini. Terima kasih atas kunjungan Anda!",
-    },
-  },
-];
+        'Selamat! Anda telah menjelajahi Fakultas Teknik UGM. Kami berharap informasi yang telah kami sampaikan bisa memberikan gambaran yang jelas dan bermanfaat bagi Anda. Jangan ragu untuk mengeksplorasi lebih lanjut atau bertanya lebih lanjut tentang apa pun yang Anda minati di fakultas ini. Terima kasih atas kunjungan Anda!'
+    }
+  }
+]
