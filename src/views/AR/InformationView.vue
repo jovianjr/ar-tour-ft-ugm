@@ -1,17 +1,17 @@
 <script setup>
-  import DepartmentCard from '@/components/DepartmentCard.vue'
-  import { ChevronUpIcon } from '@heroicons/vue/24/solid'
-  import { ref } from 'vue'
+  import DepartmentCard from '@/components/DepartmentCard.vue';
+  import { ChevronUpIcon } from '@heroicons/vue/24/solid';
+  import { ref } from 'vue';
 
   const props = defineProps({
     data: {
       type: Object,
       required: true
     }
-  })
+  });
 
-  const isHide = ref(false)
-  const emit = defineEmits(['next'])
+  const isHide = ref(false);
+  const emit = defineEmits(['next']);
 </script>
 
 <template>

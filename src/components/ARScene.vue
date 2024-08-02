@@ -1,7 +1,7 @@
 <script setup>
-  import { onMounted, ref } from 'vue'
+  import { onMounted, ref } from 'vue';
 
-  const loading = ref(true)
+  const loading = ref(true);
 
   const props = defineProps({
     active: {
@@ -13,13 +13,13 @@
       type: Object,
       required: true
     }
-  })
+  });
 
   onMounted(async () => {
-    await import('aframe')
-    await import('mind-ar/dist/mindar-image-aframe.prod.js')
-    loading.value = false
-  })
+    await import('aframe');
+    await import('mind-ar/dist/mindar-image-aframe.prod.js');
+    loading.value = false;
+  });
 </script>
 
 <template>

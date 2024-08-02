@@ -1,5 +1,5 @@
 <script setup>
-  import { SignalSlashIcon } from '@heroicons/vue/24/solid'
+  import { SignalSlashIcon } from '@heroicons/vue/24/solid';
 </script>
 <template>
   <div

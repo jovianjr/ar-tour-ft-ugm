@@ -1,18 +1,18 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
-  import { PaperAirplaneIcon } from '@heroicons/vue/24/solid'
+  import { ref, onMounted } from 'vue';
+  import { PaperAirplaneIcon } from '@heroicons/vue/24/solid';
 
-  const emit = defineEmits(['startApp'])
-  const isIOS = ref()
+  const emit = defineEmits(['startApp']);
+  const isIOS = ref();
 
   onMounted(() => {
-    isIOS.value = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
-  })
+    isIOS.value = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
+  });
 
   const startOrientation = () => {
-    if (isIOS.value) DeviceOrientationEvent.requestPermission()
-    emit('startApp')
-  }
+    if (isIOS.value) DeviceOrientationEvent.requestPermission();
+    emit('startApp');
+  };
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-import Compass from "@/components/Compass.vue";
+  import Compass from '@/components/Compass.vue';
 </script>
 
 <template>

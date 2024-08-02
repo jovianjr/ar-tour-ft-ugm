@@ -1,16 +1,16 @@
 <script setup>
-  import { onMounted } from 'vue'
-  import voice from './SpeechSynthesis.vue'
+  import { onMounted } from 'vue';
+  import voice from './SpeechSynthesis.vue';
 
   const { title, description } = defineProps({
     icon: { required: true },
     title: { type: String, required: true },
     description: { type: String, required: false }
-  })
+  });
 
   onMounted(() => {
-    voice.speak(`${title}... ${description}`)
-  })
+    voice.speak(`${title}... ${description}`);
+  });
 </script>
 
 <template>

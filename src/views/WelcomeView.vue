@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from "vue";
-// Pages
-import HomeView from "@/views/Home/HomeView.vue";
-import ARView from "@/views/AR/ARView.vue";
+  import { ref } from 'vue';
+  // Pages
+  import HomeView from '@/views/Home/HomeView.vue';
+  import ARView from '@/views/AR/ARView.vue';
 
-const welcome = ref(true);
+  const welcome = ref(true);
 </script>
 
 <template>

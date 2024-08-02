@@ -1,16 +1,16 @@
 <script setup>
-  import { ref } from 'vue'
-  import { RocketLaunchIcon } from '@heroicons/vue/24/solid'
-  import HowToUseView from '@/views/AR/HowToUseView.vue'
+  import { ref } from 'vue';
+  import { RocketLaunchIcon } from '@heroicons/vue/24/solid';
+  import HowToUseView from '@/views/AR/HowToUseView.vue';
 
-  const emit = defineEmits(['continueLastSaved'])
+  const emit = defineEmits(['continueLastSaved']);
   const props = defineProps({
     lastSavedStep: {
       type: Number,
       required: false
     }
-  })
-  const howToUseModal = ref(false)
+  });
+  const howToUseModal = ref(false);
 </script>
 
 <template>
