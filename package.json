@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@ar-js-org/ar.js": "^3.4.5",
+    "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
     "@turf/turf": "^7.0.0",
     "aframe": "^1.4.2",
     "mind-ar": "^1.2.5",
-    "sweetalert2": "^11.12.2",
     "swiper": "^11.1.5",
     "three": "^0.150.0",
     "vue": "^3.4.29",

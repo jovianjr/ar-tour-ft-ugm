@@ -1,37 +1,23 @@
 <script setup>
-  import { Swiper, SwiperSlide } from 'swiper/vue'
-  import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
-  import Swal from 'sweetalert2'
+  import { ref } from 'vue';
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { Navigation, Pagination } from 'swiper/modules';
   // Local Components
-  import AudioPlayer from '@/components/AudioPlayer.vue'
-  import ARImageTracking from '@/components/Model.vue'
+  import AudioPlayer from '@/components/AudioPlayer.vue';
+  import ARImageTracking from '@/components/Model.vue';
+  import Modal from '@/components/Modal.vue';
 
   // Import Swiper styles
-  import 'swiper/css'
-  import 'swiper/css/navigation'
-  import 'swiper/css/pagination'
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
 
   const { data } = defineProps({
     data: { type: Object, required: true }
-  })
+  });
 
-  const emit = defineEmits(['next'])
-
-  const finish = () => {
-    Swal.fire({
-      title: 'Apakah anda yakin?',
-      text: 'Anda tidak dapat kembali ke tempat ini lagi',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#1d4ed8',
-      cancelButtonColor: '#dc2626',
-      confirmButtonText: 'Ya, lanjut ke tempat selanjutnya'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        emit('next')
-      }
-    })
-  }
+  const emit = defineEmits(['next']);
+  const modalShow = ref(false);
 </script>
 
 <template>
@@ -69,13 +55,23 @@
       </div>
       <div class="flex-grow"></div>
       <button
-        @click="finish"
+        @click="modalShow = !modalShow"
         class="w-fit self-center rounded-full bg-blue-700 px-6 py-2 text-xs font-semibold text-white hover:bg-blue-600"
       >
         Lanjut ke Tempat Selanjutnya
       </button>
     </swiper-slide>
   </swiper>
+  <Modal
+    title="Ke Titik Selanjutnya"
+    :is-show="modalShow"
+    ok-text="Lanjutkan"
+    cancel-text="Kembali"
+    @toggleShow="modalShow = !modalShow"
+    @toggleOK="emit('next')"
+  >
+    Anda tidak dapat kembali setleah melanjutkan
+  </Modal>
 </template>
 
 <style>
