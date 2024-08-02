@@ -163,7 +163,7 @@
 </script>
 
 <template>
-  <div v-if="gpsSupport == true" class="z-0 relative h-svh w-svw bg-slate-900">
+  <div v-if="gpsSupport == true" class="z-0 relative h-full w-svw bg-slate-900">
     <NoInsideAreaView v-if="initialization" />
     <div v-else>
       <CompassView />
