@@ -175,6 +175,7 @@ export default {
     <br/>
     Sumber : http://creativewisnu.blogspot.co.id
     `,
-    audioTranscript: 'tugu-teknik/voice'
+    audioTranscript: 'tugu-teknik/voice',
+    model: 'tugu-teknik/tugu-teknik.glb'
   }
-}
+};

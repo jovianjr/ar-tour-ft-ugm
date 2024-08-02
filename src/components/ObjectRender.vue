@@ -3,14 +3,22 @@
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
+  const props = defineProps({
+    src: {
+      type: String,
+      required: true
+    }
+  });
+
   function main() {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(80, 1, 0.1, 50000);
 
     const renderer = new THREE.WebGLRenderer({
-      canvas: document.querySelector('#model'),
-      alpha: true
+      canvas: document.querySelector('#model')
+      // alpha: true
     });
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setAnimationLoop(animate);
     renderer.setClearColor(0x000, 0);
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -20,14 +28,14 @@
     // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     // const cube = new THREE.Mesh(geometry, material);
     // scene.add(cube);
-    const light = new THREE.AmbientLight(0xffffff); // soft white light
+    const light = new THREE.AmbientLight(0xffffff, 1); // soft white light
     scene.add(light);
-    const hlp = new THREE.AxesHelper(1);
-    scene.add(hlp);
+    // const hlp = new THREE.AxesHelper(1);
+    // scene.add(hlp);
     // gltf
     const loader = new GLTFLoader();
     loader.load(
-      '/data/tugu-teknik/tugu.glb',
+      props.src,
       (gltf) => {
         gltf.scene.position.set(0, 0, 0);
         scene.add(gltf.scene);
@@ -39,9 +47,9 @@
       }
     );
     camera.lookAt(scene.position);
-    camera.position.z = 2;
-    camera.position.y = 2;
-    camera.position.x = 2;
+    camera.position.z = 4;
+    camera.position.y = 4;
+    camera.position.x = 4;
     // cube.rotation.x = 0.5;
     controls.update();
 
@@ -58,7 +66,7 @@
 </script>
 
 <template>
-  <canvas id="model" class="!h-[25svh] !w-[25svh] rounded-lg !bg-slate-100"></canvas>
+  <canvas id="model" class="h-full aspect-square w-full rounded-lg !bg-slate-100"></canvas>
 </template>
 
 <style></style>

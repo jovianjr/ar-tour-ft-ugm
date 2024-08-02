@@ -3,11 +3,12 @@
   import { ExclamationCircleIcon, ExclamationTriangleIcon, InformationCircleIcon } from '@heroicons/vue/24/solid';
 
   const props = defineProps({
-    status: { type: String, required: false, default: 'info' },
+    status: { type: String, required: false },
     title: { type: String, required: true },
     isShow: { type: Boolean, required: true },
     cancelText: { type: String, required: false },
-    okText: { type: String, required: false }
+    okText: { type: String, required: false },
+    className: { type: String, required: false }
   });
 
   const emit = defineEmits(['toggleShow', 'toggleOK']);
@@ -41,8 +42,9 @@
           >
             <DialogPanel
               class="w-full max-w-md text-xs transform overflow-hidden rounded-2xl flex flex-col gap-4 bg-white p-6 text-left align-middle shadow-xl transition-all"
+              :class="props.className"
             >
-              <div class="h-10 aspect-square">
+              <div class="h-10 aspect-square" v-if="props.status">
                 <InformationCircleIcon v-if="props.status === 'info'" class="text-blue-500 h-[inherit] aspect-square" />
                 <ExclamationTriangleIcon
                   v-if="props.status === 'warning'"
@@ -53,22 +55,23 @@
                   class="text-red-500 h-[inherit] aspect-square"
                 />
               </div>
-              <DialogTitle as="h3" class="flex text-slate-900 text-base font-semibold items-center">
+              <DialogTitle v-if="props.title" as="h3" class="flex text-slate-900 text-base font-semibold items-center">
                 {{ props.title }}
               </DialogTitle>
               <slot></slot>
               <div class="flex gap-4 items-center justify-end">
-                <button class="py-2 px-3 text-xs font-semibold" @click="emit('toggleShow')">
-                  {{ cancelText ?? 'Cancel' }}
+                <button v-if="cancelText" class="py-2 px-3 text-xs font-semibold" @click="emit('toggleShow')">
+                  {{ cancelText }}
                 </button>
                 <button
+                  v-if="okText"
                   class="py-2 px-3 text-xs font-semibold bg-blue-700 text-white rounded-full"
                   @click="
                     emit('toggleOK');
                     emit('toggleShow');
                   "
                 >
-                  {{ okText ?? 'OK' }}
+                  {{ okText }}
                 </button>
               </div>
             </DialogPanel>
