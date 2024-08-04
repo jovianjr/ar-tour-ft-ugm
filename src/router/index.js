@@ -13,6 +13,16 @@ const router = createRouter({
       path: '/test/location',
       name: 'test-location',
       component: () => import('../views/Test/Location.vue')
+    },
+    {
+      path: '/test/model',
+      name: 'test-model',
+      component: () => import('../views/Test/Model.vue')
+    },
+    {
+      path: '/test/model/implementation',
+      name: 'test-model-imple',
+      component: () => import('../views/Test/Model.implementation.vue')
     }
     // {
     //   path: '/about',
