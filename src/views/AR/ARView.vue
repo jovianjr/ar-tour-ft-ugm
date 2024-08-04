@@ -85,7 +85,7 @@
   const checkGpsInitiate = ({ latitude, longitude }) => {
     const point = turf.point([longitude, latitude]);
     const center = [110.37228932557562, -7.765364531855143];
-    const circle = turf.circle(center, 500, { units: 'kilometers' });
+    const circle = turf.circle(center, 500, { units: 'meters' });
     const result = turf.pointsWithinPolygon(point, circle);
 
     if (result.features.length > 0) {
