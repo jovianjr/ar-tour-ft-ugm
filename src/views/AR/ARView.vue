@@ -58,20 +58,26 @@
 
     if (navigator.geolocation) {
       gpsSupport.value = true;
-      navigator.geolocation.watchPosition((val) => {
-        // Check If you inside polygon
-        if (initialization.value) {
-          checkGpsInitiate({
-            latitude: val.coords.latitude,
-            longitude: val.coords.longitude
-          });
-        } else {
-          checkGps({
-            latitude: val.coords.latitude,
-            longitude: val.coords.longitude
-          });
+      navigator.geolocation.watchPosition(
+        (val) => {
+          // Check If you inside polygon
+          if (initialization.value) {
+            checkGpsInitiate({
+              latitude: val.coords.latitude,
+              longitude: val.coords.longitude
+            });
+          } else {
+            checkGps({
+              latitude: val.coords.latitude,
+              longitude: val.coords.longitude
+            });
+          }
+        },
+        gpsNotGranted,
+        {
+          enableHighAccuracy: true
         }
-      }, gpsNotGranted);
+      );
     } else gpsNotGranted;
   };
 
