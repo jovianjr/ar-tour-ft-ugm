@@ -36,6 +36,9 @@
           <a-text position="-0.5 -0.1 0" :value="props.data.name"></a-text>
           <a-gltf-model position="0 -1 0" :src="`/data/${props.data.model}`" scale="0.2 0.2 0.2"></a-gltf-model>
         </a-entity>
+        <a-entity mindar-image-target="targetIndex: 1">
+          <a-gltf-model position="1 -0.5 0" src="gabbro.glb"></a-gltf-model>
+        </a-entity>
       </a-scene>
     </div>
   </main>
