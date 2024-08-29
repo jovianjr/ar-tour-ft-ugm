@@ -1,13 +1,21 @@
-import dataFT from './ft-ugm'
+import dataFT from './ft-ugm';
 
-export default [
-  {
-    type: 'initialization',
-    label: 'GPS',
-    data: {
-      target: [110.37385674541716, -7.765868098622165]
-    }
-  },
+export const initData = {
+  type: 'initialization',
+  label: 'GPS',
+  data: { title: 'Tugu Teknik', target: [110.37385674541716, -7.765868098622165] }
+};
+
+export const closingData = {
+  type: 'closing',
+  label: '-',
+  data: {
+    description:
+      'Selamat! Anda telah menjelajahi Fakultas Teknik UGM. Kami berharap informasi yang telah kami sampaikan bisa memberikan gambaran yang jelas dan bermanfaat bagi Anda. Jangan ragu untuk mengeksplorasi lebih lanjut atau bertanya lebih lanjut tentang apa pun yang Anda minati di fakultas ini. Terima kasih atas kunjungan Anda!'
+  }
+};
+
+export const data = [
   {
     type: 'scene',
     label: 'Tugu FT UGM',
@@ -364,13 +372,48 @@ export default [
     type: 'scene',
     label: 'MasjidFT',
     data: dataFT.masjidFT
-  },
-  {
-    type: 'closing',
-    label: '-',
-    data: {
-      description:
-        'Selamat! Anda telah menjelajahi Fakultas Teknik UGM. Kami berharap informasi yang telah kami sampaikan bisa memberikan gambaran yang jelas dan bermanfaat bagi Anda. Jangan ragu untuk mengeksplorasi lebih lanjut atau bertanya lebih lanjut tentang apa pun yang Anda minati di fakultas ini. Terima kasih atas kunjungan Anda!'
-    }
   }
-]
+];
+
+export const connectingData = {
+  type: 'direction',
+  label: 'MasjidFT-Tugu',
+  data: {
+    title: 'Tugu Teknik',
+    path: [
+      [110.3723672, -7.7647294],
+      [110.3724182, -7.764756],
+      [110.3724799, -7.7647799],
+      [110.3724745, -7.7648597],
+      [110.3724504, -7.7649288],
+      [110.3724316, -7.7649952],
+      [110.3724504, -7.7650669],
+      [110.3725255, -7.7650935],
+      [110.3726032, -7.7651068],
+      [110.3726515, -7.7651387],
+      [110.3727025, -7.7651945],
+      [110.3727293, -7.7652423],
+      [110.3727534, -7.7653088],
+      [110.3727829, -7.7653779],
+      [110.3728124, -7.7654204],
+      [110.3728393, -7.7654842],
+      [110.3729144, -7.7655108],
+      [110.3729975, -7.7655294],
+      [110.3730458, -7.7655666],
+      [110.3730726, -7.7656224],
+      [110.3731048, -7.7656569],
+      [110.3731638, -7.7656809],
+      [110.3732255, -7.7656995],
+      [110.3732926, -7.7657207],
+      [110.3733784, -7.7657446],
+      [110.3734508, -7.7657659],
+      [110.3735098, -7.7657872],
+      [110.3735742, -7.7658058],
+      [110.3736305, -7.7658244],
+      [110.3737083, -7.7658483],
+      [110.3737405, -7.7658802]
+    ],
+    target: [110.37385674541716, -7.765868098622165],
+    targetArea: [110.37385674541716, -7.765868098622165]
+  }
+};

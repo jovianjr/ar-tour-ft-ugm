@@ -15,15 +15,17 @@
   import NoGpsSupportView from '@/views/AR/NoGpsSupportView.vue';
   import CompleteView from '@/views/AR/CompleteView.vue';
   // Data
-  import dataScenario from '@/data/scenarios';
+  import * as dataScenarioRaw from '@/data/scenarios';
 
   const emit = defineEmits(['endApp']);
 
   const gpsSupport = ref(null);
   const initialization = ref(true);
 
+  const dataScenario = ref([dataScenarioRaw.initData, ...dataScenarioRaw.data, dataScenarioRaw.closingData]);
   const lastSavedStep = ref();
   const currentStep = ref(0);
+  const currentCoordinate = ref({});
   const coordinates = ref({});
 
   onMounted(async () => {
@@ -34,7 +36,7 @@
     if (!initialization.value) {
       lastSavedStep.value = parseInt(localStorage.getItem('save-step'));
       let transcript =
-        'Selamat datang di Augmented Reality Tour Fakultas Teknik Universitas Gadjah Mada. Silahkan pergi menuju Tugu Teknik untuk memulai tour.';
+        'Selamat datang di Augmented Reality Tour Fakultas Teknik Universitas Gadjah Mada. Silahkan pergi menuju titik awal untuk memulai tour.';
       if (lastSavedStep.value) {
         transcript += 'Anda juga dapat melanjutkan sesi anda sebelumnya dengan menggunakan tombol di bawah.';
       }
@@ -60,6 +62,10 @@
       gpsSupport.value = true;
       navigator.geolocation.watchPosition(
         (val) => {
+          currentCoordinate.value = {
+            latitude: val.coords.latitude,
+            longitude: val.coords.longitude
+          };
           // Check If you inside polygon
           if (initialization.value) {
             checkGpsInitiate({
@@ -100,7 +106,7 @@
   // check use based on scenario
   const checkGps = ({ latitude, longitude }) => {
     const point = turf.point([longitude, latitude]);
-    const scenario = dataScenario[currentStep.value];
+    const scenario = dataScenario.value[currentStep.value];
 
     let center = null;
     if (scenario.type === 'initialization') {
@@ -123,7 +129,7 @@
   // get path to first scenario
   const initScenario = async ({ latitude, longitude }) => {
     try {
-      const target = dataScenario[currentStep.value].data.target;
+      const target = dataScenario.value[currentStep.value].data.target;
       const dest = {
         longitude: target[0],
         latitude: target[1]
@@ -149,7 +155,7 @@
   const nextStep = () => {
     currentStep.value += 1;
 
-    if (currentStep.value === dataScenario.length - 1) {
+    if (currentStep.value === dataScenario.value.length - 1) {
       speech.speak(
         'Selamat, anda telah menyelesaikan Augmented Reality Tour Fakultas Teknik Universitas Gadjah Mada. Terima kasih telah berkunjung, sampai jumpa di kedatangan anda berikutnya.'
       );
@@ -157,14 +163,48 @@
     }
 
     coordinates.value = {
-      path: dataScenario[currentStep.value].data.path,
-      target: dataScenario[currentStep.value].data.target
+      path: dataScenario.value[currentStep.value].data.path,
+      target: dataScenario.value[currentStep.value].data.target
     };
   };
 
   // Continue last saved
   const continueLastSaved = () => {
     currentStep.value = parseInt(lastSavedStep.value);
+  };
+
+  // Handle First Tour Point
+  const changeFirstPoint = (item) => {
+    const initData = dataScenarioRaw.initData;
+    const data = dataScenarioRaw.data;
+    const closingData = dataScenarioRaw.closingData;
+    const connectingData = dataScenarioRaw.connectingData;
+
+    // find data
+    const findDataIndex = data.findIndex((o) => o.data.name === item.name);
+    if (findDataIndex > 0) {
+      const firstPart = data.slice(findDataIndex);
+      const secondPart = data.slice(0, findDataIndex - 1);
+      const modifiedData = firstPart.concat(connectingData, secondPart);
+      const modifiedInitData = {
+        ...initData,
+        data: {
+          title: data[findDataIndex].data.label,
+          target: data[findDataIndex - 1].data.target
+        }
+      };
+      dataScenario.value = [modifiedInitData, ...modifiedData, closingData];
+      initScenario({
+        latitude: currentCoordinate.value.latitude,
+        longitude: currentCoordinate.value.longitude
+      });
+    } else {
+      dataScenario.value = [initData, ...data, closingData];
+      initScenario({
+        latitude: currentCoordinate.value.latitude,
+        longitude: currentCoordinate.value.longitude
+      });
+    }
   };
 </script>
 
@@ -181,7 +221,13 @@
       </div>
 
       <!-- Opening and Ending -->
-      <OnboardingView v-if="currentStep === 0" :lastSavedStep="lastSavedStep" @continueLastSaved="continueLastSaved" />
+      <OnboardingView
+        v-if="currentStep === 0"
+        :currentData="dataScenario[currentStep].data"
+        :lastSavedStep="lastSavedStep"
+        @continueLastSaved="continueLastSaved"
+        @changeFirstPoint="changeFirstPoint"
+      />
       <CompleteView v-if="currentStep === dataScenario.length - 1" @complete="emit('endApp')" />
 
       <!-- AR -->
