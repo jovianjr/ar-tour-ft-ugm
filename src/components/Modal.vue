@@ -60,7 +60,14 @@
               </DialogTitle>
               <slot></slot>
               <div class="flex gap-4 items-center justify-end">
-                <button v-if="cancelText" class="py-2 px-3 text-xs font-semibold" @click="emit('toggleShow')">
+                <button
+                  v-if="cancelText"
+                  class="py-2 px-3 text-xs font-semibold"
+                  @click="
+                    emit('toggleCancel');
+                    emit('toggleShow');
+                  "
+                >
                   {{ cancelText }}
                 </button>
                 <button
