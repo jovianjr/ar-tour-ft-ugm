@@ -109,15 +109,18 @@
     const scenario = dataScenario.value[currentStep.value];
 
     let center = null;
+    let distance = 0;
     if (scenario.type === 'initialization') {
       center = scenario.data.target;
+      distance = 100;
     } else if (scenario.type === 'direction') {
       center = scenario.data.targetArea;
+      distance = 20;
     } else {
       return;
     }
 
-    const circle = turf.circle(center, 20, { units: 'meters' });
+    const circle = turf.circle(center, distance, { units: 'meters' });
     const result = turf.pointsWithinPolygon(point, circle);
     if (result.features.length > 0) {
       currentStep.value += 1;
