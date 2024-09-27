@@ -112,7 +112,7 @@
     let distance = 0;
     if (scenario.type === 'initialization') {
       center = scenario.data.target;
-      distance = 100;
+      distance = 30;
     } else if (scenario.type === 'direction') {
       center = scenario.data.targetArea;
       distance = 20;
